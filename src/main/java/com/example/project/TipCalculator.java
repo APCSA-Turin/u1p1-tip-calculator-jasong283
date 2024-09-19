@@ -7,14 +7,18 @@ public class TipCalculator {
         StringBuilder result = new StringBuilder();
         //your code here
                        
+        double totalTip = (cost * ((double) percent / 100));
+        double beforeTip = (cost / people);
+        double tipPerPerson = (totalTip / people);
+        
         result.append("-------------------------------\n");
-        result.append("Total bill before tip: "); //concatenate to this string. DO NOT ERASE AND REWRITE
-        result.append("Total percentage: ");
-        result.append("Total tip: ");
-        result.append("Total Bill with tip: ");
-        result.append("Per person cost before tip: ");
-        result.append("Tip per person: ");
-        result.append("Total cost per person: ");
+        result.append("Total bill before tip: $" + cost + "\n"); //concatenate to this string. DO NOT ERASE AND REWRITE
+        result.append("Total percentage: " + percent + "%\n");
+        result.append("Total tip: $" + (totalTip));
+        result.append("Total Bill with tip: $" + (cost + totalTip) + "\n");
+        result.append("Per person cost before tip: $" + (beforeTip) + "\n");
+        result.append("Tip per person: $" + (tipPerPerson) + "\n");
+        result.append("Total cost per person: $" + (beforeTip + tipPerPerson) + "\n");
         result.append("-------------------------------\n");
 
 
@@ -23,9 +27,9 @@ public class TipCalculator {
      //TEST YOUR PROGRAM IN main
      public static void main(String[] args) {
         //try different values for people, percent, and cost to test your program before running test cases
-        int people; 
-        int percent;
-        double cost;              
+        int people = 6; 
+        int percent = 25;
+        double cost = 52.27;             
         System.out.println(calculateTip(people,percent,cost));
     }
 }

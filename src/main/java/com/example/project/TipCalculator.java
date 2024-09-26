@@ -10,17 +10,19 @@ public class TipCalculator {
         double totalTip = (cost * ((double) percent / 100));
         double beforeTip = (cost / people);
         double tipPerPerson = (totalTip / people);
+
         
         result.append("-------------------------------\n");
         result.append("Total bill before tip: $" + cost + "\n"); //concatenate to this string. DO NOT ERASE AND REWRITE
         result.append("Total percentage: " + percent + "%\n");
-        result.append("Total tip: $" + (totalTip));
-        result.append("Total Bill with tip: $" + (cost + totalTip) + "\n");
-        result.append("Per person cost before tip: $" + (beforeTip) + "\n");
-        result.append("Tip per person: $" + (tipPerPerson) + "\n");
-        result.append("Total cost per person: $" + (beforeTip + tipPerPerson) + "\n");
+        result.append("Total tip: $" + Math.round(totalTip * 100) / 100.0 +  "\n");
+        result.append("Total Bill with tip: $" + Math.round((cost + totalTip) * 100) / 100.0 + "\n");
+        result.append("Per person cost before tip: $" + Math.round(beforeTip * 100) / 100.0 + "\n");
+        result.append("Tip per person: $" + Math.round(tipPerPerson * 100) / 100.0 + "\n");
+        result.append("Total cost per person: $" + Math.round((beforeTip + tipPerPerson) * 100) / 100.0 + "\n");
         result.append("-------------------------------\n");
 
+        //https://www.w3schools.com/jsref/jsref_round.asp - for Math.round
 
         return result.toString();
     }
